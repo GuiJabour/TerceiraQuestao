@@ -43,7 +43,7 @@ public class Principal {
 		double total = 0;
 		double media = 0;
 		int diasComFaturamento = 0;
-
+		int maiorQMedia = 0;
 		for (int i = 0; i < 30; i++) {
 
 			String jsonString = js.get(i).toString();
@@ -69,9 +69,17 @@ public class Principal {
 
 		//System.out.println(total);
 		//System.out.println(diasComFaturamento);
-		System.out.println("Media = " + media);
+		//System.out.println("Media = " + media);
+		
+		for (Faturamento faturamento : faturamentos) {
+			if (media < faturamento.getValor()) {
+				maiorQMedia++;
+			}
+		}
+		
 		System.out.println("Menor Faturamento = " + menor);
 		System.out.println("Maior faturamento = " +maior);
+		System.out.println("Quantidade de Dias que tiveram faturamento maior que a media: " + maiorQMedia);
 	}
 
 }
